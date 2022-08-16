@@ -14,6 +14,10 @@
 		A0FDA2FC28A7B1F70031C631 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0FDA2FA28A7B1F70031C631 /* LaunchScreen.storyboard */; };
 		A0FDA30828A7BA600031C631 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FDA30728A7BA600031C631 /* UsersViewController.swift */; };
 		A0FDA32C28A7DF170031C631 /* UsersCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FDA32B28A7DF170031C631 /* UsersCustomCell.swift */; };
+		A0FDA33228AC274C0031C631 /* InfoUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FDA33128AC274C0031C631 /* InfoUsersViewController.swift */; };
+		A0FDA33428AC34060031C631 /* InfoUsersCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FDA33328AC34060031C631 /* InfoUsersCustomCell.swift */; };
+		A0FDA33828AC368A0031C631 /* SetupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FDA33728AC368A0031C631 /* SetupCell.swift */; };
+		A0FDA33A28AC36D00031C631 /* Protocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FDA33928AC36D00031C631 /* Protocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +30,10 @@
 		A0FDA2FD28A7B1F70031C631 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0FDA30728A7BA600031C631 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
 		A0FDA32B28A7DF170031C631 /* UsersCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersCustomCell.swift; sourceTree = "<group>"; };
+		A0FDA33128AC274C0031C631 /* InfoUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoUsersViewController.swift; sourceTree = "<group>"; };
+		A0FDA33328AC34060031C631 /* InfoUsersCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoUsersCustomCell.swift; sourceTree = "<group>"; };
+		A0FDA33728AC368A0031C631 /* SetupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupCell.swift; sourceTree = "<group>"; };
+		A0FDA33928AC36D00031C631 /* Protocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,8 +122,20 @@
 		A0FDA32E28ABEA510031C631 /* InfoUsers */ = {
 			isa = PBXGroup;
 			children = (
+				A0FDA33528AC36290031C631 /* Model */,
+				A0FDA33128AC274C0031C631 /* InfoUsersViewController.swift */,
+				A0FDA33328AC34060031C631 /* InfoUsersCustomCell.swift */,
 			);
 			path = InfoUsers;
+			sourceTree = "<group>";
+		};
+		A0FDA33528AC36290031C631 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				A0FDA33728AC368A0031C631 /* SetupCell.swift */,
+				A0FDA33928AC36D00031C631 /* Protocol.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,9 +210,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0FDA30828A7BA600031C631 /* UsersViewController.swift in Sources */,
+				A0FDA33828AC368A0031C631 /* SetupCell.swift in Sources */,
 				A0FDA32C28A7DF170031C631 /* UsersCustomCell.swift in Sources */,
+				A0FDA33A28AC36D00031C631 /* Protocol.swift in Sources */,
+				A0FDA33228AC274C0031C631 /* InfoUsersViewController.swift in Sources */,
 				A0FDA2F028A7B1F60031C631 /* AppDelegate.swift in Sources */,
 				A0FDA2F228A7B1F60031C631 /* SceneDelegate.swift in Sources */,
+				A0FDA33428AC34060031C631 /* InfoUsersCustomCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

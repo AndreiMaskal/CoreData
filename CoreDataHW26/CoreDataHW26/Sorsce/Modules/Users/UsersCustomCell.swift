@@ -23,4 +23,8 @@ class UsersCustomCell: UITableViewCell {
     override func prepareForReuse() {
         super.prepareForReuse()
     }
+    
+    func setupTable() {
+        accessoryType = .disclosureIndicator
+    }
 }

@@ -9,15 +9,15 @@ import UIKit
 
 class UsersViewController: UIViewController {
     
-    let custoCellUsers = UsersCustomCell()
+    let customCellUsers = UsersCustomCell()
     
-    private lazy var textLabelField: UITextField = {
-        var label = UITextField()
-        label.placeholder = "print your here name"
-        label.backgroundColor = .systemGray3
-        label.borderStyle = .roundedRect
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
+    private lazy var selfTextField: UITextField = {
+        var textField = UITextField()
+        textField.placeholder = "print your here name"
+        textField.backgroundColor = .systemGray3
+        textField.borderStyle = .roundedRect
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        return textField
     }()
     
     private lazy var buttonPress: UIButton = {
@@ -27,7 +27,6 @@ class UsersViewController: UIViewController {
         button.layer.cornerRadius = 5
         button.setTitle("Press", for: .normal)
         button.backgroundColor = #colorLiteral(red: 0, green: 0.477409184, blue: 1, alpha: 1)
-        
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -42,7 +41,7 @@ class UsersViewController: UIViewController {
     
     private lazy var tableView: UITableView = {
         let table = UITableView(frame: view.bounds, style: .insetGrouped)
-        table.register(UsersCustomCell.self, forCellReuseIdentifier: custoCellUsers.cellUsersId)
+        table.register(UsersCustomCell.self, forCellReuseIdentifier: customCellUsers.cellUsersId)
         table.dataSource = self
         table.delegate = self
         table.translatesAutoresizingMaskIntoConstraints = false
@@ -63,18 +62,18 @@ class UsersViewController: UIViewController {
     
     func setupNavigation() {
         navigationItem.title = "Users"
-        self.navigationController?.navigationBar.prefersLargeTitles = true
+        navigationController?.navigationBar.prefersLargeTitles = true
     }
     
     func setupView() {
-        view.addSubview(textLabelField)
+        view.addSubview(selfTextField)
         view.addSubview(buttonPress)
         view.addSubview(userStackView)
         view.addSubview(tableView)
     }
     
     private func addStackView() {
-        userStackView.addArrangedSubview(textLabelField)
+        userStackView.addArrangedSubview(selfTextField)
         userStackView.addArrangedSubview(buttonPress)
     }
     
@@ -99,14 +98,14 @@ class UsersViewController: UIViewController {
 
 extension UsersViewController: UITableViewDataSource {
     
-    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 3
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: custoCellUsers.cellUsersId, for: indexPath) as? UsersCustomCell else { return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: customCellUsers.cellUsersId, for: indexPath) as? UsersCustomCell else { return UITableViewCell()
         }
+        cell.setupTable()
         return cell
     }
 }
@@ -114,9 +113,18 @@ extension UsersViewController: UITableViewDataSource {
 extension UsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        perform(#selector(tappedActionCell))
+    }
+
+    @objc private func tappedActionCell() {
+        navigationController?.pushViewController(InfoUsersViewController(), animated: false)
     }
     
 }
+
+
+
+
 
 
 
