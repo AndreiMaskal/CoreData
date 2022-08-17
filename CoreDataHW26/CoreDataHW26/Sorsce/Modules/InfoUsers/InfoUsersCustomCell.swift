@@ -38,6 +38,7 @@ class InfoUsersCustomCell: UITableViewCell {
 
         let imageSystem = data.image
         imageSystems.image = UIImage(systemName: imageSystem)
+        imageSystems.tintColor = UIColor.gray
         
         detailTextLabel?.text = data.detailText
     

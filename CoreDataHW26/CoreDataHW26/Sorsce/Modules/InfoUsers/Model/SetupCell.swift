@@ -17,7 +17,7 @@ class Setup {
     
     static func setupCellInfo() -> [SetupCellInfo] {
         
-        let sectionOne = [SetupCellInfo(image: "figure.stand"),
+        let sectionOne = [SetupCellInfo(image: "person"),
                           SetupCellInfo(image: "calendar"),
                           SetupCellInfo(image: "figure.stand.line.dotted.figure.stand", detailText: "Other")]
         

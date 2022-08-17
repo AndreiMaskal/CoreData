@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A0101F1428AD79310091B1FE /* PresenterUsers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0101F1328AD79310091B1FE /* PresenterUsers.swift */; };
 		A0FDA2F028A7B1F60031C631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FDA2EF28A7B1F60031C631 /* AppDelegate.swift */; };
 		A0FDA2F228A7B1F60031C631 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FDA2F128A7B1F60031C631 /* SceneDelegate.swift */; };
 		A0FDA2F728A7B1F60031C631 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0FDA2F528A7B1F60031C631 /* Main.storyboard */; };
@@ -21,6 +22,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A0101F1328AD79310091B1FE /* PresenterUsers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresenterUsers.swift; sourceTree = "<group>"; };
 		A0FDA2EC28A7B1F60031C631 /* CoreDataHW26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataHW26.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0FDA2EF28A7B1F60031C631 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0FDA2F128A7B1F60031C631 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			children = (
 				A0FDA30728A7BA600031C631 /* UsersViewController.swift */,
 				A0FDA32B28A7DF170031C631 /* UsersCustomCell.swift */,
+				A0101F1328AD79310091B1FE /* PresenterUsers.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -212,6 +215,7 @@
 				A0FDA30828A7BA600031C631 /* UsersViewController.swift in Sources */,
 				A0FDA33828AC368A0031C631 /* SetupCell.swift in Sources */,
 				A0FDA32C28A7DF170031C631 /* UsersCustomCell.swift in Sources */,
+				A0101F1428AD79310091B1FE /* PresenterUsers.swift in Sources */,
 				A0FDA33A28AC36D00031C631 /* Protocol.swift in Sources */,
 				A0FDA33228AC274C0031C631 /* InfoUsersViewController.swift in Sources */,
 				A0FDA2F028A7B1F60031C631 /* AppDelegate.swift in Sources */,

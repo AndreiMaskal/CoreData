@@ -42,6 +42,7 @@ class InfoUsersViewController: UIViewController {
     
    private func setupNavigation() {
        navigationItem.rightBarButtonItem = editButtonItem
+
     }
     
     private func setupView() {
@@ -53,7 +54,7 @@ class InfoUsersViewController: UIViewController {
     func setupLoyaut() {
         
         NSLayoutConstraint.activate([
-            photoUser.topAnchor.constraint(equalTo: view.topAnchor, constant: 170),
+            photoUser.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
             photoUser.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             photoUser.heightAnchor.constraint(equalToConstant: 150),
             photoUser.widthAnchor.constraint(equalToConstant: 150)
@@ -78,8 +79,7 @@ extension InfoUsersViewController: UITableViewDataSource {
     guard let cell = tableView.dequeueReusableCell(withIdentifier: customCellInfoUsers.cellInfoUsersId, for: indexPath) as? InfoUsersCustomCell else { return UITableViewCell()
         }
         
-        let dataForCell = dataSetupCell[indexPath.row]
-        cell.setupInfoCell(data: dataForCell)
+        
         cell.setupTable()
         return cell
     }
