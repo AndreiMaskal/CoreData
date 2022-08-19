@@ -37,10 +37,10 @@ class UsersViewController: UIViewController {
    
         }
     }
-    
+    // для добавления оной строки, вместо reloаdData
     private func reload() {
         users.append(userView?.selfTextField.text ?? "")
-        userView?.tableView.reloadData()
+        userView?.tableView.insertRows(at: [IndexPath(row: users.count - 1, section: 0)], with: .automatic)
         
     }
     
@@ -64,6 +64,8 @@ class UsersViewController: UIViewController {
     func setupNavigation() {
         navigationItem.title = "Users"
         navigationController?.navigationBar.prefersLargeTitles = true
+    
+        
     }
     
     // Alert

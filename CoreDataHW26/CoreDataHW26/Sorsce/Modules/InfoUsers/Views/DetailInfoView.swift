@@ -57,6 +57,7 @@ class DetailInfoView: UIView {
     //MARK: - Инициализация
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .white
         setupHierarchy()
         setupLayout()
         configureGenderTextField(textField: genderTextField, toolbar: genderToolBar)
@@ -79,7 +80,7 @@ class DetailInfoView: UIView {
     
     private func makeLineSeparator() -> UIView {
         let lineSeparator = UIView()
-        lineSeparator.layer.borderColor = UIColor.white.cgColor
+        lineSeparator.layer.borderColor = UIColor.gray.cgColor
         lineSeparator.layer.borderWidth = (1.0 / UIScreen.main.scale) / 2
         return lineSeparator
     }
