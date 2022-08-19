@@ -10,10 +10,10 @@ import UIKit
 
 class UsersCustomCell: UITableViewCell {
     
-    let cellUsersId = "cellUsersId"
+    static let cellUsersId = "cellUsersId"
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .value1, reuseIdentifier: cellUsersId)
+        super.init(style: .value1, reuseIdentifier: UsersCustomCell.cellUsersId)
     }
     
     required init?(coder: NSCoder) {
