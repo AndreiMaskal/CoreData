@@ -9,7 +9,10 @@ import UIKit
 
 class InfoUsersViewController: UIViewController {
     
-        var detailView = DetailInfoView()
+    var detailView: DetailInfoView! {
+        guard isViewLoaded else { return nil}
+        return view as? DetailInfoView
+    }
         
     private lazy var editButton = UIBarButtonItem(title: "Edit",
                                                   style: .plain,
@@ -32,7 +35,7 @@ class InfoUsersViewController: UIViewController {
         }
         
         private func toogleUserIterations(active: Bool) {
-            [detailView.photoUserView, detailView.parentStackView].forEach {
+            [detailView.parentStackView].forEach {
                 $0?.isUserInteractionEnabled = active
             }
         }
@@ -41,12 +44,10 @@ class InfoUsersViewController: UIViewController {
             if self.isEditing {
                 self.setEditing(false, animated: true)
                 editButton.title = "Edit"
-                
             } else {
                 self.setEditing(true, animated: true)
                 editButton.title = "Save"
             }
-            
             toogleUserIterations(active: self.isEditing)
         }
     }

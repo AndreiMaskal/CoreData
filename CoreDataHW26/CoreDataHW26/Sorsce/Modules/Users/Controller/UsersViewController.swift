@@ -6,8 +6,11 @@
 //
 
 import UIKit
+import CoreData
 
 class UsersViewController: UIViewController {
+    
+    var name: [Person] = []
     
     let customCellUsers = UsersCustomCell()
         

@@ -33,7 +33,7 @@ class DetailInfoView: UIView {
         datePicker.tintColor = .systemGray
         return datePicker
     }()
-    
+        
     lazy var parentStackView = createStackView(axis: .vertical, distribution: .fill, alignment: .leading)
     private lazy var nameStackView = createStackView(axis: .horizontal, distribution: .fill, alignment: .leading)
     private lazy var birthdayStackView = createStackView(axis: .horizontal, distribution: .fill, alignment: .leading)
@@ -151,6 +151,24 @@ class DetailInfoView: UIView {
             lineSeparatorThree.trailingAnchor.constraint(equalTo: parentStackView.trailingAnchor)
         ])
     }
+    
+//    @objc private func editButtonTapped() {
+//        let userNameTextField = detailedUserView?.userNameTextField
+//        let birthDateTextField = detailedUserView?.birthDateTextField
+//        let genderTextField = detailedUserView?.genderTextField
+//        let avatar = detailedUserView?.avatarButton
+//
+//        func toggleMode() {
+//            isEditingMode.toggle()
+//            editOptionButton.title = isEditingMode ? "Save" : "Edit"
+//            backOptionButton.isEnabled.toggle()
+//            detailedUserView?.backgroundColor = isEditingMode ? .systemGray5 : .systemBackground
+//            userNameTextField?.isEnabled.toggle()
+//            birthDateTextField?.isEnabled.toggle()
+//            genderTextField?.isEnabled.toggle()
+//            avatar?.isEnabled.toggle()
+//
+//        }
     
     // настройка пикера пола
     private func createGenderToolbar() -> UIToolbar {
