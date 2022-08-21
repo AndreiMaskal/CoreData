@@ -10,10 +10,10 @@ import CoreData
 
 class UsersViewController: UIViewController {
     
-    var name: [Person] = []
-    
     let customCellUsers = UsersCustomCell()
-        
+    var users: [Person] = []
+    private let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     private var userView: UsersView? {
         guard isViewLoaded else { return nil}
         return view as? UsersView
@@ -23,9 +23,7 @@ class UsersViewController: UIViewController {
         guard isViewLoaded else { return nil}
         return view as? DetailInfoView
     }
-    
-    var users = [String]()
-    
+        
     private func setupAction() {
         userView?.buttonPress.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
     }
@@ -40,11 +38,41 @@ class UsersViewController: UIViewController {
    
         }
     }
-    // для добавления оной строки, вместо reloаdData
+   
     private func reload() {
-        users.append(userView?.selfTextField.text ?? "")
-        userView?.tableView.insertRows(at: [IndexPath(row: users.count - 1, section: 0)], with: .automatic)
+        save(userView?.selfTextField.text ?? "")
+    }
+    
+    private func save(_ nameUser: String) {
+   
+        // Entity name
+        guard let entityDescription = NSEntityDescription.entity(forEntityName: "Person", in: managedContext) else { return }
+        // Model
+        let user = NSManagedObject(entity: entityDescription, insertInto: managedContext) as! Person
         
+        user.name = nameUser
+        
+        do {
+            try managedContext.save()
+            users.append(user)
+            // для добавления оной строки, вместо reloаdData
+            userView?.tableView.insertRows(at: [IndexPath(row: users.count - 1, section: 0)], with: .automatic)
+
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    private func fetchData() {
+        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
+        
+        do {
+            users = try managedContext.fetch(fetchRequest)
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+
     }
     
     func delete(at indexPath: Int) {
@@ -58,6 +86,11 @@ class UsersViewController: UIViewController {
         setupAction()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchData()
+    }
+    
     func setupView() {
         view = UsersView()
         userView?.tableView.dataSource = self
@@ -67,8 +100,6 @@ class UsersViewController: UIViewController {
     func setupNavigation() {
         navigationItem.title = "Users"
         navigationController?.navigationBar.prefersLargeTitles = true
-    
-        
     }
     
     // Alert
@@ -89,16 +120,30 @@ extension UsersViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: UsersCustomCell.cellUsersId, for: indexPath) as? UsersCustomCell else { return UITableViewCell()
         }
-        cell.textLabel?.text = users[indexPath.row]
+        cell.textLabel?.text = users[indexPath.row].name
         cell.setupTable()
         return cell
     }
     
     // deleting data
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        let user = users[indexPath.row]
         if editingStyle == .delete {
-            delete(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: .left)
+            deleteUser(user, indexPath: indexPath)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
+    
+    // deletind data base
+    func deleteUser(_ user: Person, indexPath: IndexPath) {
+        managedContext.delete(user)
+        
+        do {
+            try managedContext.save()
+            users.remove(at: indexPath.row)
+        } catch let error {
+            print("Error delete tata base: \(error)")
         }
     }
 }

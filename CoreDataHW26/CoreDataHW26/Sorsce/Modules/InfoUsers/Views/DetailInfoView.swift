@@ -152,24 +152,6 @@ class DetailInfoView: UIView {
         ])
     }
     
-//    @objc private func editButtonTapped() {
-//        let userNameTextField = detailedUserView?.userNameTextField
-//        let birthDateTextField = detailedUserView?.birthDateTextField
-//        let genderTextField = detailedUserView?.genderTextField
-//        let avatar = detailedUserView?.avatarButton
-//
-//        func toggleMode() {
-//            isEditingMode.toggle()
-//            editOptionButton.title = isEditingMode ? "Save" : "Edit"
-//            backOptionButton.isEnabled.toggle()
-//            detailedUserView?.backgroundColor = isEditingMode ? .systemGray5 : .systemBackground
-//            userNameTextField?.isEnabled.toggle()
-//            birthDateTextField?.isEnabled.toggle()
-//            genderTextField?.isEnabled.toggle()
-//            avatar?.isEnabled.toggle()
-//
-//        }
-    
     // настройка пикера пола
     private func createGenderToolbar() -> UIToolbar {
         let toolbar = UIToolbar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 35))

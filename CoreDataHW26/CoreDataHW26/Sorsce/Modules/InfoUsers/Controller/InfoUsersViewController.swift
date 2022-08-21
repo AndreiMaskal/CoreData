@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 class InfoUsersViewController: UIViewController {
     
@@ -13,7 +14,9 @@ class InfoUsersViewController: UIViewController {
         guard isViewLoaded else { return nil}
         return view as? DetailInfoView
     }
-        
+    
+    var users: [Person] = []
+    
     private lazy var editButton = UIBarButtonItem(title: "Edit",
                                                   style: .plain,
                                                   target: self,
@@ -24,6 +27,7 @@ class InfoUsersViewController: UIViewController {
             setupView()
             setupEditButton()
             toogleUserIterations(active: isEditing)
+//            setData(person: user)
         }
         
         func setupView() {
@@ -50,5 +54,9 @@ class InfoUsersViewController: UIViewController {
             }
             toogleUserIterations(active: self.isEditing)
         }
-    }
+    
+    func setData(person: Person) {
 
+        detailView.nameTextField.text = person.name
+    }
+}
