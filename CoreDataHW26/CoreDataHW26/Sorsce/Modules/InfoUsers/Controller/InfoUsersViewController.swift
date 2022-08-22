@@ -15,7 +15,7 @@ class InfoUsersViewController: UIViewController {
         return view as? DetailInfoView
     }
     
-    var users: [Person] = []
+    var presenter: DetailsPresenter!
     
     private lazy var editButton = UIBarButtonItem(title: "Edit",
                                                   style: .plain,
@@ -27,11 +27,12 @@ class InfoUsersViewController: UIViewController {
             setupView()
             setupEditButton()
             toogleUserIterations(active: isEditing)
-//            setData(person: user)
+            detailView.configure(from: presenter.user)
         }
         
         func setupView() {
             view = DetailInfoView()
+            detailView.nameTextField.delegate = self
         }
     
         private func setupEditButton() {
@@ -54,9 +55,11 @@ class InfoUsersViewController: UIViewController {
             }
             toogleUserIterations(active: self.isEditing)
         }
-    
-    func setData(person: Person) {
+}
 
-        detailView.nameTextField.text = person.name
+extension InfoUsersViewController: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
     }
 }

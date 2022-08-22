@@ -10,8 +10,7 @@ import UIKit
 class DetailInfoView: UIView {
     
     let genderPickerView = GenderView()
-    var userName = UsersViewController()
-    
+
     // переменные
     lazy var photoUserView: UIImageView = {
         var imageView = UIImageView()
@@ -83,6 +82,10 @@ class DetailInfoView: UIView {
         lineSeparator.layer.borderColor = UIColor.gray.cgColor
         lineSeparator.layer.borderWidth = (1.0 / UIScreen.main.scale) / 2
         return lineSeparator
+    }
+    
+    func configure(from model: Person) {
+        nameTextField.text = model.name
     }
     
     private func createTextFields(with placeholder: String) -> UITextField {

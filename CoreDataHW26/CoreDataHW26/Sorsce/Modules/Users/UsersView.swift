@@ -9,16 +9,16 @@ import UIKit
 
 class UsersView: UIView {
     
-     var selfTextField: UITextField = {
-            let textField = UITextField()
-            textField.layer.masksToBounds = true
-            textField.layer.cornerRadius = 5
-            textField.borderStyle = .roundedRect
-            textField.placeholder = "print your here name"
-            return textField
+    var selfTextField: UITextField = {
+        let textField = UITextField()
+        textField.layer.masksToBounds = true
+        textField.layer.cornerRadius = 5
+        textField.borderStyle = .roundedRect
+        textField.placeholder = "print your here name"
+        return textField
     }()
     
-      var buttonPress: UIButton = {
+    var buttonPress: UIButton = {
         var button = UIButton(type: .system)
         var config = UIButton.Configuration.filled()
         config.title = "Press"
@@ -49,7 +49,7 @@ class UsersView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-     lazy var tableView: UITableView = {
+    lazy var tableView: UITableView = {
         let table = UITableView(frame: bounds, style: .insetGrouped)
         table.register(UsersCustomCell.self, forCellReuseIdentifier: UsersCustomCell.cellUsersId)
         table.translatesAutoresizingMaskIntoConstraints = false

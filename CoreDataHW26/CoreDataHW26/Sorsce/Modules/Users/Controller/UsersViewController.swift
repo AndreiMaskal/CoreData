@@ -12,6 +12,7 @@ class UsersViewController: UIViewController {
     
     let customCellUsers = UsersCustomCell()
     var users: [Person] = []
+    
     private let managedContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
     private var userView: UsersView? {
@@ -24,61 +25,7 @@ class UsersViewController: UIViewController {
         return view as? DetailInfoView
     }
         
-    private func setupAction() {
-        userView?.buttonPress.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
-    }
-    
-    @objc private func createButtonTapped() {
-        if !(userView?.selfTextField.hasText ?? true) {
-            showAlert(title: "Error", message: "Enter name")
-        } else {
-            reload()
-            userView?.selfTextField.text = ""
-            userView?.selfTextField.isSelected = false
-   
-        }
-    }
-   
-    private func reload() {
-        save(userView?.selfTextField.text ?? "")
-    }
-    
-    private func save(_ nameUser: String) {
-   
-        // Entity name
-        guard let entityDescription = NSEntityDescription.entity(forEntityName: "Person", in: managedContext) else { return }
-        // Model
-        let user = NSManagedObject(entity: entityDescription, insertInto: managedContext) as! Person
-        
-        user.name = nameUser
-        
-        do {
-            try managedContext.save()
-            users.append(user)
-            // для добавления оной строки, вместо reloаdData
-            userView?.tableView.insertRows(at: [IndexPath(row: users.count - 1, section: 0)], with: .automatic)
-
-        } catch let error {
-            print(error.localizedDescription)
-        }
-    }
-    
-    private func fetchData() {
-        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
-        
-        do {
-            users = try managedContext.fetch(fetchRequest)
-            
-        } catch let error {
-            print(error.localizedDescription)
-        }
-
-    }
-    
-    func delete(at indexPath: Int) {
-        users.remove(at: indexPath)
-    }
-    
+    //MARK: Lifecikle
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -101,8 +48,76 @@ class UsersViewController: UIViewController {
         navigationItem.title = "Users"
         navigationController?.navigationBar.prefersLargeTitles = true
     }
+    private func setupAction() {
+        userView?.buttonPress.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
+    }
     
-    // Alert
+    @objc private func createButtonTapped() {
+        if !(userView?.selfTextField.hasText ?? true) {
+            showAlert(title: "Error", message: "Enter name")
+        } else {
+            reload()
+            userView?.selfTextField.text = ""
+            userView?.selfTextField.isSelected = false
+            
+        }
+    }
+    
+    //MARK: CoreData
+    private func reload() {
+        save(userView?.selfTextField.text ?? "")
+    }
+    
+    private func save(_ nameUser: String) {
+        
+        // Entity name
+        guard let entityDescription = NSEntityDescription.entity(forEntityName: "Person", in: managedContext) else { return }
+        // Model
+        let user = NSManagedObject(entity: entityDescription, insertInto: managedContext) as! Person
+        
+        user.name = nameUser
+        
+        do {
+            try managedContext.save()
+            users.append(user)
+            // для добавления оной строки, вместо reloаdData
+            userView?.tableView.insertRows(at: [IndexPath(row: users.count - 1, section: 0)], with: .automatic)
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+    }
+    
+    func getUsersFromCoreData() -> [Person] {
+        var results = [Person]()
+        do {
+            let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
+            fetchRequest.returnsObjectsAsFaults = false
+            let context = managedContext
+            results = try context.fetch(fetchRequest)
+        } catch {
+            print(error)
+        }
+        return results
+    }
+    
+    private func fetchData() {
+        let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
+        
+        do {
+            users = try managedContext.fetch(fetchRequest)
+            
+        } catch let error {
+            print(error.localizedDescription)
+        }
+        
+    }
+    
+    func delete(at indexPath: Int) {
+        users.remove(at: indexPath)
+    }
+    
+    //MARK:  Alert
     public func showAlert(title: String, message: String) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let okButton = UIAlertAction(title: "Close", style: .cancel)
@@ -111,6 +126,7 @@ class UsersViewController: UIViewController {
     }
 }
 
+//MARK: extention
 extension UsersViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -150,12 +166,23 @@ extension UsersViewController: UITableViewDataSource {
 
 extension UsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(InfoUsersViewController(), animated: true)
+        
+        let userPresenter = users[indexPath.row]
+    
+   
+        let detailsVC = InfoUsersViewController()
+        let presentrer = DetailsPresenter()
+        
+        presentrer.user = userPresenter
+        detailsVC.presenter = presentrer
+     
+        
+        
+        navigationController?.pushViewController(detailsVC, animated: true)
         tableView.deselectRow(at: indexPath, animated: true)
     }
     
 }
-
 
 
 
