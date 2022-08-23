@@ -10,7 +10,6 @@ import UIKit
 class DetailInfoView: UIView {
     
     let genderPickerView = GenderView()
-    var userName = UsersViewController()
     
     // переменные
     lazy var photoUserView: UIImageView = {
@@ -46,7 +45,6 @@ class DetailInfoView: UIView {
     
     lazy var nameTextField = createTextFields(with: "name")
     lazy var genderTextField = createTextFields(with: "Gender")
-
     
     private lazy var genderToolBar = createGenderToolbar()
     
@@ -57,6 +55,7 @@ class DetailInfoView: UIView {
     //MARK: - Инициализация
     override init(frame: CGRect) {
         super.init(frame: frame)
+        backgroundColor = .white
         setupHierarchy()
         setupLayout()
         configureGenderTextField(textField: genderTextField, toolbar: genderToolBar)
@@ -79,9 +78,15 @@ class DetailInfoView: UIView {
     
     private func makeLineSeparator() -> UIView {
         let lineSeparator = UIView()
-        lineSeparator.layer.borderColor = UIColor.white.cgColor
+        lineSeparator.layer.borderColor = UIColor.gray.cgColor
         lineSeparator.layer.borderWidth = (1.0 / UIScreen.main.scale) / 2
         return lineSeparator
+    }
+    
+    func configure(from model: Person) {
+        nameTextField.text = model.name
+        birthdayDatePicker.date = model.date ?? Date.now
+        genderTextField.text = model.gender
     }
     
     private func createTextFields(with placeholder: String) -> UITextField {

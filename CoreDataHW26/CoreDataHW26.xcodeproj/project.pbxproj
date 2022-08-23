@@ -10,8 +10,11 @@
 		A0101F1828AEA08E0091B1FE /* DetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0101F1728AEA08E0091B1FE /* DetailInfoView.swift */; };
 		A0101F1A28AEA44A0091B1FE /* GenderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0101F1928AEA44A0091B1FE /* GenderView.swift */; };
 		A0101F1E28AEB5040091B1FE /* UsersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0101F1D28AEB5040091B1FE /* UsersView.swift */; };
+		A0A3551128B016940084254B /* CoreDataHW26.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0A3550F28B016940084254B /* CoreDataHW26.xcdatamodeld */; };
+		A0F9A6C928B238C600872E4D /* UsersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9A6C828B238C600872E4D /* UsersPresenter.swift */; };
+		A0F9A6CD28B24C9500872E4D /* UserInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9A6CC28B24C9500872E4D /* UserInfoPresenter.swift */; };
+		A0F9A6CF28B4046000872E4D /* ServiceCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9A6CE28B4046000872E4D /* ServiceCoreData.swift */; };
 		A0FDA2F028A7B1F60031C631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FDA2EF28A7B1F60031C631 /* AppDelegate.swift */; };
-		A0FDA2F228A7B1F60031C631 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FDA2F128A7B1F60031C631 /* SceneDelegate.swift */; };
 		A0FDA2F728A7B1F60031C631 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0FDA2F528A7B1F60031C631 /* Main.storyboard */; };
 		A0FDA2F928A7B1F70031C631 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0FDA2F828A7B1F70031C631 /* Assets.xcassets */; };
 		A0FDA2FC28A7B1F70031C631 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0FDA2FA28A7B1F70031C631 /* LaunchScreen.storyboard */; };
@@ -24,9 +27,12 @@
 		A0101F1728AEA08E0091B1FE /* DetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailInfoView.swift; sourceTree = "<group>"; };
 		A0101F1928AEA44A0091B1FE /* GenderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenderView.swift; sourceTree = "<group>"; };
 		A0101F1D28AEB5040091B1FE /* UsersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersView.swift; sourceTree = "<group>"; };
+		A0A3551028B016940084254B /* CoreDataHW26.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataHW26.xcdatamodel; sourceTree = "<group>"; };
+		A0F9A6C828B238C600872E4D /* UsersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersPresenter.swift; sourceTree = "<group>"; };
+		A0F9A6CC28B24C9500872E4D /* UserInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoPresenter.swift; sourceTree = "<group>"; };
+		A0F9A6CE28B4046000872E4D /* ServiceCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCoreData.swift; sourceTree = "<group>"; };
 		A0FDA2EC28A7B1F60031C631 /* CoreDataHW26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataHW26.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0FDA2EF28A7B1F60031C631 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A0FDA2F128A7B1F60031C631 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A0FDA2F628A7B1F60031C631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A0FDA2F828A7B1F70031C631 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A0FDA2FB28A7B1F70031C631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 				A0FDA30428A7B80A0031C631 /* Resorsce */,
 				A0FDA30328A7B8000031C631 /* Sorsce */,
 				A0FDA2FD28A7B1F70031C631 /* Info.plist */,
+				A0A3550F28B016940084254B /* CoreDataHW26.xcdatamodeld */,
 			);
 			path = CoreDataHW26;
 			sourceTree = "<group>";
@@ -112,6 +119,7 @@
 			children = (
 				A0FDA30628A7BA220031C631 /* Modules */,
 				A0FDA30528A7B8300031C631 /* App */,
+				A0F9A6CE28B4046000872E4D /* ServiceCoreData.swift */,
 			);
 			path = Sorsce;
 			sourceTree = "<group>";
@@ -130,7 +138,6 @@
 			isa = PBXGroup;
 			children = (
 				A0FDA2EF28A7B1F60031C631 /* AppDelegate.swift */,
-				A0FDA2F128A7B1F60031C631 /* SceneDelegate.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -138,8 +145,8 @@
 		A0FDA30628A7BA220031C631 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				A0FDA32E28ABEA510031C631 /* InfoUsers */,
 				A0FDA32D28ABE3E30031C631 /* Users */,
+				A0FDA32E28ABEA510031C631 /* InfoUsers */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -149,6 +156,7 @@
 			children = (
 				A0101F1B28AEB4830091B1FE /* Controller */,
 				A0101F1C28AEB4AB0091B1FE /* Views */,
+				A0F9A6C828B238C600872E4D /* UsersPresenter.swift */,
 			);
 			path = Users;
 			sourceTree = "<group>";
@@ -158,6 +166,7 @@
 			children = (
 				A0101F1628AEA0350091B1FE /* Controller */,
 				A0101F1528AE9AC50091B1FE /* Views */,
+				A0F9A6CC28B24C9500872E4D /* UserInfoPresenter.swift */,
 			);
 			path = InfoUsers;
 			sourceTree = "<group>";
@@ -235,11 +244,14 @@
 			files = (
 				A0FDA30828A7BA600031C631 /* UsersViewController.swift in Sources */,
 				A0101F1A28AEA44A0091B1FE /* GenderView.swift in Sources */,
+				A0F9A6C928B238C600872E4D /* UsersPresenter.swift in Sources */,
+				A0F9A6CD28B24C9500872E4D /* UserInfoPresenter.swift in Sources */,
 				A0FDA32C28A7DF170031C631 /* UsersCustomCell.swift in Sources */,
 				A0FDA33228AC274C0031C631 /* InfoUsersViewController.swift in Sources */,
+				A0F9A6CF28B4046000872E4D /* ServiceCoreData.swift in Sources */,
 				A0101F1828AEA08E0091B1FE /* DetailInfoView.swift in Sources */,
 				A0FDA2F028A7B1F60031C631 /* AppDelegate.swift in Sources */,
-				A0FDA2F228A7B1F60031C631 /* SceneDelegate.swift in Sources */,
+				A0A3551128B016940084254B /* CoreDataHW26.xcdatamodeld in Sources */,
 				A0101F1E28AEB5040091B1FE /* UsersView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -458,6 +470,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		A0A3550F28B016940084254B /* CoreDataHW26.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				A0A3551028B016940084254B /* CoreDataHW26.xcdatamodel */,
+			);
+			currentVersion = A0A3551028B016940084254B /* CoreDataHW26.xcdatamodel */;
+			path = CoreDataHW26.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = A0FDA2E428A7B1F60031C631 /* Project object */;
 }
