@@ -13,6 +13,7 @@
 		A0A3551128B016940084254B /* CoreDataHW26.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A0A3550F28B016940084254B /* CoreDataHW26.xcdatamodeld */; };
 		A0F9A6C928B238C600872E4D /* UsersPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9A6C828B238C600872E4D /* UsersPresenter.swift */; };
 		A0F9A6CD28B24C9500872E4D /* UserInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9A6CC28B24C9500872E4D /* UserInfoPresenter.swift */; };
+		A0F9A6CF28B4046000872E4D /* ServiceCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F9A6CE28B4046000872E4D /* ServiceCoreData.swift */; };
 		A0FDA2F028A7B1F60031C631 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0FDA2EF28A7B1F60031C631 /* AppDelegate.swift */; };
 		A0FDA2F728A7B1F60031C631 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A0FDA2F528A7B1F60031C631 /* Main.storyboard */; };
 		A0FDA2F928A7B1F70031C631 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A0FDA2F828A7B1F70031C631 /* Assets.xcassets */; };
@@ -29,6 +30,7 @@
 		A0A3551028B016940084254B /* CoreDataHW26.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreDataHW26.xcdatamodel; sourceTree = "<group>"; };
 		A0F9A6C828B238C600872E4D /* UsersPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersPresenter.swift; sourceTree = "<group>"; };
 		A0F9A6CC28B24C9500872E4D /* UserInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoPresenter.swift; sourceTree = "<group>"; };
+		A0F9A6CE28B4046000872E4D /* ServiceCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceCoreData.swift; sourceTree = "<group>"; };
 		A0FDA2EC28A7B1F60031C631 /* CoreDataHW26.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreDataHW26.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A0FDA2EF28A7B1F60031C631 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A0FDA2F628A7B1F60031C631 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 			children = (
 				A0FDA30628A7BA220031C631 /* Modules */,
 				A0FDA30528A7B8300031C631 /* App */,
+				A0F9A6CE28B4046000872E4D /* ServiceCoreData.swift */,
 			);
 			path = Sorsce;
 			sourceTree = "<group>";
@@ -245,6 +248,7 @@
 				A0F9A6CD28B24C9500872E4D /* UserInfoPresenter.swift in Sources */,
 				A0FDA32C28A7DF170031C631 /* UsersCustomCell.swift in Sources */,
 				A0FDA33228AC274C0031C631 /* InfoUsersViewController.swift in Sources */,
+				A0F9A6CF28B4046000872E4D /* ServiceCoreData.swift in Sources */,
 				A0101F1828AEA08E0091B1FE /* DetailInfoView.swift in Sources */,
 				A0FDA2F028A7B1F60031C631 /* AppDelegate.swift in Sources */,
 				A0A3551128B016940084254B /* CoreDataHW26.xcdatamodeld in Sources */,

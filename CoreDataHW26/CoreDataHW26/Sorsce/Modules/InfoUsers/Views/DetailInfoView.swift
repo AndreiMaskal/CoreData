@@ -10,7 +10,7 @@ import UIKit
 class DetailInfoView: UIView {
     
     let genderPickerView = GenderView()
-
+    
     // переменные
     lazy var photoUserView: UIImageView = {
         var imageView = UIImageView()
@@ -32,7 +32,7 @@ class DetailInfoView: UIView {
         datePicker.tintColor = .systemGray
         return datePicker
     }()
-        
+    
     lazy var parentStackView = createStackView(axis: .vertical, distribution: .fill, alignment: .leading)
     private lazy var nameStackView = createStackView(axis: .horizontal, distribution: .fill, alignment: .leading)
     private lazy var birthdayStackView = createStackView(axis: .horizontal, distribution: .fill, alignment: .leading)
@@ -45,7 +45,6 @@ class DetailInfoView: UIView {
     
     lazy var nameTextField = createTextFields(with: "name")
     lazy var genderTextField = createTextFields(with: "Gender")
-
     
     private lazy var genderToolBar = createGenderToolbar()
     
@@ -86,6 +85,8 @@ class DetailInfoView: UIView {
     
     func configure(from model: Person) {
         nameTextField.text = model.name
+        birthdayDatePicker.date = model.date ?? Date.now
+        genderTextField.text = model.gender
     }
     
     private func createTextFields(with placeholder: String) -> UITextField {

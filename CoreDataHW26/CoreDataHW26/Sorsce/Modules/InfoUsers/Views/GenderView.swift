@@ -7,7 +7,6 @@
 
 import UIKit
 
-
 private enum Genders: String, CaseIterable {
     case man = "Men"
     case women = "Women"
@@ -50,7 +49,5 @@ extension GenderView: UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         Genders.allCases.count
     }
-    
-    
 }
 

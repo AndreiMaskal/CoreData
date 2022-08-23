@@ -7,17 +7,21 @@
 
 import Foundation
 
-//protocol UsersPresenterProtocol {
-//    var reload: (() -> Void)? { get set }
-////    func saveData(from text: String)
-////    func getData()
-//}
-
 class UsersPresenter {
-//    var reload: (() -> Void)?
-    var users = [Person]()
-    var usersCount: Int {
-        users.count
+    
+    var users: [Person] = []
+
+    
+    func fetchData() {
+        ServiceCoreData.shared.fetchData()
+    }
+    
+    func save(_ nameUser: String) {
+        ServiceCoreData.shared.save(nameUser)
+    }
+    
+    func deleteUser(_ user: Person, indexPath: IndexPath) {
+        ServiceCoreData.shared.deleteUser(user, indexPath: indexPath)
     }
 }
 
