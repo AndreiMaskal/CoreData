@@ -29,7 +29,7 @@ class ServiceCoreData {
     
     // MARK: - Core Data Saving support
     
-    func saveContext () {
+    func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -43,7 +43,6 @@ class ServiceCoreData {
     }
     
     func save(_ nameUser: String) {
-        
         // Entity name
         guard let entityDescription = NSEntityDescription.entity(forEntityName: "Person", in: managedContext) else { return }
         // Model
@@ -60,12 +59,10 @@ class ServiceCoreData {
     }
     
     func updateUser(_ user: Person, gender: String?, date: Date) {
-        
         if let gender = gender {
             user.gender = gender
             user.date = date
         }
-        
         do {
             try managedContext.save()
         } catch {

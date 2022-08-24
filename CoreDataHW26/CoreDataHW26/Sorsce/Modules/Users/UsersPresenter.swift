@@ -10,8 +10,11 @@ import Foundation
 class UsersPresenter {
     
     var users: [Person] = []
-
     
+    func saveContext() {
+        ServiceCoreData.shared.saveContext()
+    }
+
     func fetchData() {
         ServiceCoreData.shared.fetchData()
     }

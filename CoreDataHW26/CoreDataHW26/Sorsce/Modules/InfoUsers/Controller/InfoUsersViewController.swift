@@ -20,6 +20,7 @@ class InfoUsersViewController: UIViewController {
     }
     
     var presenter = DetailsPresenter()
+//    let coreDataService = ServiceCoreData()
     
     private lazy var editButton = UIBarButtonItem(title: "Edit",
                                                   style: .plain,

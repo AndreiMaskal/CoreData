@@ -33,6 +33,7 @@ class UsersViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        coreDataService.saveContext()
         coreDataService.fetchData()
     }
     
@@ -105,7 +106,6 @@ extension UsersViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         let userPresenter = coreDataService.users[indexPath.row]
-        
         
         let detailsVC = InfoUsersViewController()
         let presentrer = DetailsPresenter()
