@@ -84,6 +84,7 @@ class DetailInfoView: UIView {
     }
     
     func configure(from model: Person) {
+        
         nameTextField.text = model.name
         birthdayDatePicker.date = model.date ?? Date.now
         genderTextField.text = model.gender

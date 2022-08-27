@@ -7,16 +7,25 @@
 
 import Foundation
 
-class UsersPresenter {
+protocol UsersPresenterType {
+    var users: [Person] { get set }
+    func saveContext()
+    func fetchData()
+    func save(_ nameUser: String)
+    func deleteUser(_ user: Person, indexPath: IndexPath)
+}
+
+class UsersPresenter: UsersPresenterType {
     
-    var users: [Person] = []
+    var users = [Person]()
     
     func saveContext() {
         ServiceCoreData.shared.saveContext()
     }
 
     func fetchData() {
-        ServiceCoreData.shared.fetchData()
+        users = ServiceCoreData.shared.fetchData() ?? []
+        
     }
     
     func save(_ nameUser: String) {
@@ -25,6 +34,11 @@ class UsersPresenter {
     
     func deleteUser(_ user: Person, indexPath: IndexPath) {
         ServiceCoreData.shared.deleteUser(user, indexPath: indexPath)
+        fetchData()
+    }
+    
+    func fffff() {
+        
     }
 }
 

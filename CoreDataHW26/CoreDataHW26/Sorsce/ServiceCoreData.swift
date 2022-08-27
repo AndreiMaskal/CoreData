@@ -70,16 +70,19 @@ class ServiceCoreData {
         }
     }
         
-    func fetchData() {
+    func fetchData() -> [Person]? {
+        
         let fetchRequest: NSFetchRequest<Person> = Person.fetchRequest()
         
         do {
             users = try managedContext.fetch(fetchRequest)
+            print("print \(users)")
+            return users
             
         } catch let error {
             print(error.localizedDescription)
+            return nil
         }
-        
     }
     
     func delete(at indexPath: Int) {

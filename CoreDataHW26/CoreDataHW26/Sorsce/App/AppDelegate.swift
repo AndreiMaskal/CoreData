@@ -16,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Thread.sleep(forTimeInterval: 1)
         window = UIWindow()
         window?.makeKeyAndVisible()
-        window?.rootViewController = UINavigationController(rootViewController: UsersViewController())
+        let usersViewController = UsersViewController()
+        usersViewController.usersPresenter = UsersPresenter()
+        window?.rootViewController = UINavigationController(rootViewController: usersViewController)
         return true
     }
 }
