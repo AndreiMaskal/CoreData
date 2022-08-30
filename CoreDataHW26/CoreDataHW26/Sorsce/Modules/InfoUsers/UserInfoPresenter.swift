@@ -12,7 +12,7 @@ import Foundation
     let coreDataService = ServiceCoreData()
     var user = Person()
      
-     func updateUser(_ user: Person, gender: String?, date: Date) {
-         coreDataService.updateUser(user, gender: gender, date: date)
+     func updateUser(_ user: Person, name: String,  gender: String?, date: Date) {
+         coreDataService.updateUser(user, name: name, gender: gender, date: date)
      }
  }

@@ -11,7 +11,7 @@ class UsersViewController: UIViewController {
     
     let customCellUsers = UsersCustomCell()
     var usersPresenter: UsersPresenterType!
-    
+
     private var userView: UsersView? {
         guard isViewLoaded else { return nil}
         return view as? UsersView
@@ -29,11 +29,12 @@ class UsersViewController: UIViewController {
         setupNavigation()
         setupAction()
         usersPresenter.fetchData()
-        usersPresenter.saveContext()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        userView?.tableView.reloadData()
+        usersPresenter.saveContext()
     }
     
     func setupView() {
@@ -48,7 +49,9 @@ class UsersViewController: UIViewController {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     private func setupAction() {
-        userView?.buttonPress.addTarget(self, action: #selector(createButtonTapped), for: .touchUpInside)
+        userView?.buttonPress.addTarget(self,
+                                        action: #selector(createButtonTapped),
+                                        for: .touchUpInside)
     }
     
     @objc private func createButtonTapped() {
@@ -64,7 +67,9 @@ class UsersViewController: UIViewController {
     //MARK: CoreData
     private func reload() {
         usersPresenter.save(userView?.selfTextField.text ?? "")
-        userView?.tableView.insertRows(at: [IndexPath(row: usersPresenter.users.count - 1, section: 0)], with: .automatic)
+        userView?.tableView.insertRows(at: [IndexPath(row: usersPresenter.users.count - 1,
+                                                      section: 0)],
+                                       with: .automatic)        
     }
     
     //MARK:  Alert
@@ -83,8 +88,10 @@ extension UsersViewController: UITableViewDataSource {
         return usersPresenter.users.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: UsersCustomCell.cellUsersId, for: indexPath) as? UsersCustomCell else { return UITableViewCell()
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: UsersCustomCell.cellUsersId,
+                                                       for: indexPath) as? UsersCustomCell else { return UITableViewCell()
         }
         cell.textLabel?.text = usersPresenter.users[indexPath.row].name
         cell.setupTable()
@@ -92,7 +99,9 @@ extension UsersViewController: UITableViewDataSource {
     }
     
     // deleting data
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   commit editingStyle: UITableViewCell.EditingStyle,
+                   forRowAt indexPath: IndexPath) {
         
         let user = usersPresenter.users[indexPath.row]
         if editingStyle == .delete {
@@ -103,7 +112,8 @@ extension UsersViewController: UITableViewDataSource {
 }
 
 extension UsersViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         
         let userPresenter = usersPresenter.users[indexPath.row]
         

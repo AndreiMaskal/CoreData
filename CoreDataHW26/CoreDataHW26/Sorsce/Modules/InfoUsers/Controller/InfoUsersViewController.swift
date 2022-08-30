@@ -53,7 +53,7 @@ class InfoUsersViewController: UIViewController {
         if self.isEditing {
             self.setEditing(false, animated: true)
             editButton.title = "Edit"
-            presenter.updateUser(presenter.user, gender: detailView.genderTextField.text ?? "", date: detailView.birthdayDatePicker.date)
+            presenter.updateUser(presenter.user, name: detailView.nameTextField.text ?? "", gender: detailView.genderTextField.text ?? "", date: detailView.birthdayDatePicker.date)
         } else {
             self.setEditing(true, animated: true)
             editButton.title = "Save"

@@ -58,8 +58,9 @@ class ServiceCoreData {
         }
     }
     
-    func updateUser(_ user: Person, gender: String?, date: Date) {
+    func updateUser(_ user: Person, name: String, gender: String?, date: Date) {
         if let gender = gender {
+            user.name = name
             user.gender = gender
             user.date = date
         }

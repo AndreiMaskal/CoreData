@@ -30,15 +30,12 @@ class UsersPresenter: UsersPresenterType {
     
     func save(_ nameUser: String) {
         ServiceCoreData.shared.save(nameUser)
+        fetchData()
     }
     
     func deleteUser(_ user: Person, indexPath: IndexPath) {
         ServiceCoreData.shared.deleteUser(user, indexPath: indexPath)
         fetchData()
-    }
-    
-    func fffff() {
-        
     }
 }
 
